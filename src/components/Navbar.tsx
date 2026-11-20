@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Phone, MessageCircle, Menu, X, Clock, MapPin, ChevronRight } from 'lucide-react';
+import { MessageCircle, Menu, X, ChevronRight } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/data/content';
 import { Logo } from './Logo';
 
@@ -30,55 +30,6 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top corporate notice bar */}
-      <div
-        style={{
-          backgroundColor: '#1E2922',
-          color: '#E0ECE3',
-          fontSize: '0.82rem',
-          padding: '0.45rem 0',
-          borderBottom: '1px solid rgba(255,255,255,0.08)'
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '0.5rem'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <MapPin size={13} color="#4E9A67" />
-              <span>Indore, Madhya Pradesh, India</span>
-            </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
-              <Clock size={13} color="#4E9A67" />
-              <span>Mon - Sat: 9:00 AM - 7:30 PM</span>
-            </span>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <a
-              href={`tel:${COMPANY_DETAILS.phone}`}
-              style={{
-                color: '#FFFFFF',
-                fontWeight: 600,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem'
-              }}
-            >
-              <Phone size={13} color="#4E9A67" />
-              <span>Call: {COMPANY_DETAILS.displayPhone}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main sticky navigation */}
       <header
         style={{
@@ -250,14 +201,6 @@ export const Navbar: React.FC = () => {
                   gap: '0.75rem'
                 }}
               >
-                <a
-                  href={`tel:${COMPANY_DETAILS.phone}`}
-                  className="btn btn-secondary"
-                  style={{ width: '100%' }}
-                >
-                  <Phone size={16} />
-                  <span>Call {COMPANY_DETAILS.displayPhone}</span>
-                </a>
                 <a
                   href={COMPANY_DETAILS.whatsappUrl}
                   target="_blank"

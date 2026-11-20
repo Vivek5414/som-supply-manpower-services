@@ -48,7 +48,7 @@ import {
 import { ServiceCard } from '@/components/ServiceCard';
 import { CtaBanner } from '@/components/CtaBanner';
 import { ContactForm } from '@/components/ContactForm';
-import Logo from '@/components/Logo';
+import { Logo } from '@/components/Logo';
 
 const FAQ_ITEMS = [
   {
@@ -404,13 +404,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
-          @media (max-width: 992px) {
-            :global(.hero-grid) {
-              grid-template-columns: 1fr !important;
-              gap: 3rem !important;
-            }
-          }
         `}</style>
       </section>
 
@@ -606,7 +599,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 992px) {
             :global(.handyman-grid) {
               grid-template-columns: 1fr !important;
@@ -873,7 +865,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 768px) {
             :global(.stat-box) {
               border-right: none !important;
@@ -1059,7 +1050,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 992px) {
             :global(.planning-grid) {
               grid-template-columns: 1fr !important;
@@ -1251,7 +1241,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 900px) {
             :global(.showcase-grid) {
               grid-template-columns: 1fr !important;
@@ -1553,7 +1542,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 992px) {
             :global(.intro-grid) {
               grid-template-columns: 1fr !important;
@@ -2069,7 +2057,6 @@ export default function HomePage() {
               gap: 1.5rem !important;
             }
           }
-          `
           @media (max-width: 992px) {
             :global(.enquiry-grid) {
               grid-template-columns: 1fr !important;

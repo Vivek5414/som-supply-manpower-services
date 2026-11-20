@@ -313,12 +313,14 @@ export default function HomePage() {
             {/* Right Visual Column: Professional Real Workforce Image */}
             <div style={{ position: 'relative' }} className="hero-visual-col">
               <div
+                className="hero-image-frame"
                 style={{
                   position: 'relative',
-                  height: '480px',
+                  width: '100%',
+                  aspectRatio: '4 / 3',
                   borderRadius: '20px',
                   overflow: 'hidden',
-                  boxShadow: '0 24px 50px rgba(15, 31, 23, 0.12)',
+                  boxShadow: '0 20px 44px rgba(15, 31, 23, 0.14)',
                   border: '2px solid #E0EBE3',
                   backgroundColor: '#FFFFFF'
                 }}
@@ -330,7 +332,16 @@ export default function HomePage() {
                   priority
                   loading="eager"
                   sizes="(max-width: 900px) 100vw, 50vw"
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                />
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(13,30,21,0.02) 45%, rgba(13,30,21,0.42) 100%)',
+                    pointerEvents: 'none'
+                  }}
                 />
                 <div
                   style={{
@@ -380,6 +391,11 @@ export default function HomePage() {
             :global(.hero-grid) {
               grid-template-columns: 1fr !important; gap: 2rem !important;
             }
+            :global(.hero-image-frame) {
+              max-width: 620px;
+              margin: 0 auto;
+              aspect-ratio: 4 / 3 !important;
+            }
             :global(.handyman-grid) {
               grid-template-columns: 1fr !important;
             }
@@ -394,6 +410,10 @@ export default function HomePage() {
             :global(.section) {
               padding: 2rem 1rem !important;
             }
+            :global(.hero-image-frame) {
+              border-radius: 14px !important;
+              aspect-ratio: 1 / 1 !important;
+            }
             :global(.section-title) {
               font-size: 1.75rem !important;
             }
@@ -402,6 +422,63 @@ export default function HomePage() {
             }
             :global(.hero-grid) {
               gap: 1.5rem !important;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* =========================================================================
+          KEY STATS STRIP
+      ========================================================================= */}
+      <section
+        style={{
+          backgroundColor: '#FFFFFF',
+          borderBottom: '1px solid #E0EBE3',
+          padding: '2.75rem 0'
+        }}
+      >
+        <div className="container">
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+              gap: '2rem',
+              textAlign: 'center'
+            }}
+          >
+            {STATS_DATA.map((item, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: '0.75rem',
+                  borderRight: idx < STATS_DATA.length - 1 ? '1px solid #E0EBE3' : 'none'
+                }}
+                className="stat-box"
+              >
+                <div
+                  style={{
+                    fontSize: '2.5rem',
+                    fontWeight: 800,
+                    color: '#176B43',
+                    lineHeight: 1.1,
+                    marginBottom: '0.35rem',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
+                  {item.value}
+                </div>
+                <div style={{ fontSize: '0.92rem', color: '#4E9A67', fontWeight: 600 }}>
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <style jsx>{`
+          @media (max-width: 768px) {
+            :global(.stat-box) {
+              border-right: none !important;
             }
           }
         `}</style>
@@ -786,91 +863,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* =========================================================================
-          KEY STATS STRIP
-      ========================================================================= */}
-      <section
-        style={{
-          backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #E0EBE3',
-          padding: '2.75rem 0'
-        }}
-      >
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
-              gap: '2rem',
-              textAlign: 'center'
-            }}
-          >
-            {STATS_DATA.map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  padding: '0.75rem',
-                  borderRight: idx < STATS_DATA.length - 1 ? '1px solid #E0EBE3' : 'none'
-                }}
-                className="stat-box"
-              >
-                <div
-                  style={{
-                    fontSize: '2.5rem',
-                    fontWeight: 800,
-                    color: '#176B43',
-                    lineHeight: 1.1,
-                    marginBottom: '0.35rem',
-                    letterSpacing: '-0.02em'
-                  }}
-                >
-                  {item.value}
-                </div>
-                <div style={{ fontSize: '0.92rem', color: '#4E9A67', fontWeight: 600 }}>
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <style jsx>{`
-          @media (max-width: 992px) {
-            :global(.hero-grid) {
-              grid-template-columns: 1fr !important; gap: 2rem !important;
-            }
-            :global(.handyman-grid) {
-              grid-template-columns: 1fr !important;
-            }
-            :global(.handyman-content) {
-              padding: 2rem 1.5rem !important;
-            }
-            :global(.handyman-check-grid) {
-              grid-template-columns: 1fr !important;
-            }
-          }
-          @media (max-width: 640px) {
-            :global(.section) {
-              padding: 2rem 1rem !important;
-            }
-            :global(.section-title) {
-              font-size: 1.75rem !important;
-            }
-            :global(.handyman-check-grid) {
-              grid-template-columns: 1fr !important;
-            }
-            :global(.hero-grid) {
-              gap: 1.5rem !important;
-            }
-          }
-          @media (max-width: 768px) {
-            :global(.stat-box) {
-              border-right: none !important;
-            }
-          }
-        `}</style>
       </section>
 
       {/* =========================================================================
